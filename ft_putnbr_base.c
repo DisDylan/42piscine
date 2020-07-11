@@ -34,12 +34,12 @@ int		check_base(char *base)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	int	size_base;
-	int	nbr_final[100];
-	int	i;
+    int i;
+	int	len;
+	int	nb_final[20];
 
 	i = 0;
-	size_base = 0;
+	len = 0;
 	if (check_base(base))
 	{
 		if (nbr < 0)
@@ -47,20 +47,15 @@ void	ft_putnbr_base(int nbr, char *base)
 			nbr = -nbr;
 			ft_putchar('-');
 		}
-		while (base[size_base])
-			size_base++;
+		while (base[len])
+			len++;
 		while (nbr)
 		{
-			nbr_final[i] = nbr % size_base;
-			nbr = nbr / size_base;
+			nb_final[i] = nbr % len;
+			nbr = nbr / len;
 			i++;
 		}
 		while (--i >= 0)
-			ft_putchar(base[nbr_final[i]]);
+			ft_putchar(base[nb_final[i]]);
 	}
-}
-
-int     main()
-{
-    ft_putnbr_base(1357, "poneyvif");
 }
