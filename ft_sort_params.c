@@ -17,6 +17,8 @@ int	ft_strcmp(char *s1, char *s2)
 	int k;
 
 	k = 0;
+	if (&s2[k] == "")
+		return (1);
 	while (s1[k] || s2[k])
 	{
 		if (s1[k] > s2[k])
@@ -47,7 +49,30 @@ void	ft_sort_in_tab(char **str)
 	}
 
 }
+/*
+int	put_prog_name_out(char **str)
+{
+	int m;
+	int n;
+	char swap;
+	char to_see;
 
+	m = 0;
+	n = 0;
+	while (str[m])
+	{
+		to_see = str[m];
+		if (to_see[n] == '.' && to_see[n + 1] == '/')
+		{
+			swap = str[m];
+			str[m] = str[0];
+			str[0] = swap;
+			return (0);
+		}
+		m++;
+	}
+}
+*/
 int	main(int argc, char **argv)
 {
 	(void) 	argc;
@@ -55,6 +80,12 @@ int	main(int argc, char **argv)
 	int 	j;
 	char 	**printable;
 
+	j = 1;
+	while (argv[j])
+	{
+		printable[j] = argv[j];
+		j++;
+	}
 	j = 1;
 	printable = argv;
 	ft_sort_in_tab(printable);

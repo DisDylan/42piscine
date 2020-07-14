@@ -17,4 +17,5 @@ int	main(int argc, char **argv)
 	(void) argc;
 	(void) argv;
 	ft_putstr(argv[0]);
+	write(1, "\n", 1);
 }
