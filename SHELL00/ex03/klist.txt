@@ -1,0 +1,6 @@
+Credentials cache: API:08705E30-3473-42BA-8290-C7D13EF18706
+        Principal: dpoinsu@42.FR
+
+  Issued                Expires               Principal
+Jul 11 18:37:27 2020  Jul 18 18:37:21 2020  krbtgt/42.FR@42.FR
+Jul 11 18:37:28 2020  Jul 18 18:37:21 2020  HTTP/student-storage-2.42.fr@42.FR
