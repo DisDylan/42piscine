@@ -6,7 +6,7 @@
 /*   By: dpoinsu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 15:58:11 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/07/19 13:02:40 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/07/19 14:56:02 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@
 # define ODD_MSG "I have an odd number of arguments.\n"
 # define SUCCESS 0
 
-typedef int t_bool;
+typedef	int	t_bool;
 
 #endif
