@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dpoinsu <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/22 10:26:38 by dpoinsu           #+#    #+#             */
+/*   Updated: 2020/07/22 16:59:27 by dpoinsu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
@@ -10,12 +22,7 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 		dest[i] = src[i];
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = ‘\0’;
-		i++;
-	}
-	dest[i] = ‘\0’;
+	dest[i] = '\0';
 	return (dest);
 }
 
@@ -27,7 +34,7 @@ int		is_charset(char c, char *charset)
 	while (charset[i])
 	{
 		if (c == charset[i])
-			return (i);
+			return (1);
 		i++;
 	}
 	return (0);
@@ -54,17 +61,17 @@ int		count_words(char *str, char *charset)
 
 char	*ft_strdup(char *str, char *charset)
 {
-	int i;
-	char *dest;
+	int		i;
+	char	*dest;
 
 	i = 0;
 	while (str[i])
 	{
 		if (str[i] && (is_charset(str[i], charset)))
 			break ;
-		i++
+		i++;
 	}
-	if (!(dest = (char *)malloc(sizeof(char) * i + 1)))
+	if (!(dest = malloc(sizeof(dest) * (i + 1))))
 		return (NULL);
 	dest = ft_strncpy(dest, str, i);
 	return (dest);
@@ -72,14 +79,13 @@ char	*ft_strdup(char *str, char *charset)
 
 char	**ft_split(char *str, char *charset)
 {
-	int i;
-	int j;
-	char **tab;
+	int		i;
+	int		j;
+	char	**tab;
 
 	i = 0;
 	j = 0;
-	if (!(tab = (char**)malloc(sizeof(char*) * count_words(str, charset) + 1))
-		|| !str)
+	if (!(tab = (char**)malloc(sizeof(char*) * count_words(str, charset) + 1)))
 		return (NULL);
 	while (str[i] && j < count_words(str, charset))
 	{
@@ -93,4 +99,6 @@ char	**ft_split(char *str, char *charset)
 		while (str[i] && !is_charset(str[i], charset))
 			i++;
 	}
+	tab[j] = 0;
+	return (tab);
 }

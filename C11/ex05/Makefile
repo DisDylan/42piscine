@@ -5,18 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: dpoinsu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/07/20 12:46:34 by dpoinsu           #+#    #+#              #
-#    Updated: 2020/07/22 14:14:32 by dpoinsu          ###   ########.fr        #
+#    Created: 2020/07/22 16:00:16 by dpoinsu           #+#    #+#              #
+#    Updated: 2020/07/22 16:28:10 by dpoinsu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= srcs/ft_putchar.c srcs/ft_swap.c srcs/ft_putstr.c srcs/ft_strlen.c srcs/ft_strcmp.c
+SRCS	= main.c
 
-OBJS	= ${SRCS:.c=.o}
-
-NAME	= libft.a
-
-HEADER	= includes
+NAME	= do-op
 
 GCC		= gcc
 
@@ -24,15 +20,11 @@ RM		= rm -f
 
 CFLAGS	= -Wall -Wextra -Werror
 
-.c.o:	
-			${GCC} ${CFLAGS} -c $< -o ${<:.c=.o} -I ${HEADER}
-
-${NAME}:	${OBJS}
-			ar -rc ${NAME} ${OBJS}
-			ranlib ${NAME}
+${NAME}:
+			${GCC} -o ${NAME} ${CFLAGS} ${SRCS}
 
 all:		${NAME}
-
+   				
 clean:
 			${RM} ${OBJS}
 
