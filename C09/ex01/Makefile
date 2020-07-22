@@ -10,11 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= main.c srcs/ft_putchar.c srcs/ft_swap.c srcs/ft_putstr.c srcs/ft_strlen.c srcs/ft_strcmp.c includes/ft.h
+SRCS	= main.c srcs/ft_putchar.c srcs/ft_swap.c srcs/ft_putstr.c srcs/ft_strlen.c srcs/ft_strcmp.c
 
 OBJS	= ${SRCS:.c=.o}
 
 NAME	= libft.a
+
+HEADER	= includes
 
 GCC		= gcc
 
@@ -23,10 +25,11 @@ RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror
 
 .c.o:	
-			${GCC} ${CFLAGS} -c $< -o ${<:.c=.o}
+			${GCC} ${CFLAGS} -c $< -o ${<:.c=.o} -I ${HEADER}
 
 ${NAME}:	${OBJS}
-			gcc -o ${NAME} ${OBJS}
+			ar -rc ${NAME} ${OBJS}
+			ranlib ${NAME}
 
 all:		${NAME}
 
