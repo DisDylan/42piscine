@@ -6,7 +6,7 @@
 /*   By: dpoinsu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 10:41:39 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/07/22 10:45:41 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/07/23 10:10:23 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@ int		*ft_map(int *tab, int length, int (*f)(int))
 	int *new_tab;
 	int i;
 
+	new_tab = 0;
+	i = 0;
 	while (i < length)
 	{
 		new_tab[i] = (*f)(tab[i]);
